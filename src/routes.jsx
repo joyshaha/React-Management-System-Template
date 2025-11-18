@@ -5,13 +5,12 @@ import PublicLayout from "@/layouts/authentication/PublicLayout";
 
 import Layout from "@/layouts/Layout";
 import Home from "@/pages/Home";
-import Users from "@/pages/Users";
-import General from "@/pages/settings/general";
-import Security from "@/pages/settings/Security";
 import Billing from "@/pages/settings/Billing";
+import General from "@/pages/settings/General";
+import Security from "@/pages/settings/Security";
+import Users from "@/pages/Users";
 import Notifications from "@/pages/Notifications";
 import Reports from "@/pages/Reports";
-
 
 import Login from "@/pages/authentication/Login";
 import Register from "@/pages/authentication/Register";
