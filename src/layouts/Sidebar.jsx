@@ -1,21 +1,4 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router";
-import {
-  Home,
-  Users,
-  Settings,
-  BarChart,
-  Bell,
-  Menu,
-  X,
-  Shield,
-  CreditCard,
-  Gem,
-  User,
-  LogOut,
-  ChevronDown,
-} from "lucide-react";
-import Menubar from "./Menubar";
+import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -23,7 +6,22 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
+import UserMenu from "@/components/UserMenu";
+import {
+  BarChart,
+  Bell,
+  ChevronDown,
+  CreditCard,
+  Gem,
+  Home,
+  Menu,
+  Settings,
+  Shield,
+  Users,
+  X,
+} from "lucide-react";
+import { useState } from "react";
+import Menubar from "./Menubar";
 
 function Sidebar({
   open,
@@ -33,12 +31,6 @@ function Sidebar({
   submenuOpen,
   setSubmenuOpen,
 }) {
-  const navigate = useNavigate();
-  // handle logout
-  const handleLogout = () => {
-    localStorage.removeItem("auth");
-    navigate("/login");
-  };
   const menuItems = [
     { name: "Dashboard", icon: Home, path: "/" },
     { name: "Users", icon: Users, path: "/users" },
@@ -157,15 +149,8 @@ function Sidebar({
               {/* {menuItems.map(renderMenu)} */}
               {/* Profile + Logout added for mobile/tablet */}
               <div className="mt-6 border-t pt-4 space-y-2 dark:border-gray-700">
-                <div className="flex items-center gap-2 px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg cursor-pointer">
-                  <User className="w-5 h-5" /> <span>Profile</span>
-                </div>
-                <div
-                  className="flex items-center gap-2 px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg cursor-pointer text-red-600"
-                  onClick={handleLogout}
-                >
-                  <LogOut className="w-5 h-5" /> <span>Logout</span>
-                </div>
+                {/* profile + logout */}
+                <UserMenu />
               </div>
             </nav>
           </aside>

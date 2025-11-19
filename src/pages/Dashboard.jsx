@@ -1,16 +1,16 @@
-import React from "react";
-import { Line, Bar } from "react-chartjs-2";
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
   BarElement,
+  CategoryScale,
+  Chart as ChartJS,
+  Filler,
+  Legend,
+  LinearScale,
+  LineElement,
+  PointElement,
   Title,
   Tooltip,
-  Legend,
 } from "chart.js";
+import { Bar, Line } from "react-chartjs-2";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -19,7 +19,8 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Filler
 );
 
 function Dashboard() {
@@ -81,7 +82,9 @@ function Dashboard() {
       {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="bg-white p-6 rounded-xl shadow dark:bg-gray-700">
-          <h3 className="text-lg font-semibold mb-4 dark:text-gray-900">Revenue Trends</h3>
+          <h3 className="text-lg font-semibold mb-4 dark:text-gray-900">
+            Revenue Trends
+          </h3>
           <div className="h-96 w-full">
             <Line
               data={revenueData}
@@ -91,7 +94,9 @@ function Dashboard() {
           </div>
         </div>
         <div className="bg-white p-6 rounded-xl shadow dark:bg-gray-700">
-          <h3 className="text-lg font-semibold mb-4 dark:text-gray-900">Weekly User Signups</h3>
+          <h3 className="text-lg font-semibold mb-4 dark:text-gray-900">
+            Weekly User Signups
+          </h3>
           <div className="h-96 w-full">
             <Bar
               data={userSignupData}
@@ -119,8 +124,14 @@ function StatCard({ title, value, growth, color }) {
   return (
     <div className="bg-white rounded-xl p-5 shadow hover:shadow-md transition-shadow duration-200 dark:bg-gray-700">
       <p className="text-gray-500 text-sm dark:text-gray-900">{title}</p>
-      <h3 className="text-2xl font-semibold mt-1 dark:text-gray-900">{value}</h3>
-      <span className={`text-sm font-medium ${colorMap[color]} dark:text-gray-900`}>{growth}</span>
+      <h3 className="text-2xl font-semibold mt-1 dark:text-gray-900">
+        {value}
+      </h3>
+      <span
+        className={`text-sm font-medium ${colorMap[color]} dark:text-gray-900`}
+      >
+        {growth}
+      </span>
     </div>
   );
 }
